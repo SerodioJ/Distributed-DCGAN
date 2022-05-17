@@ -25,9 +25,9 @@ def exec(
     csv_line = [end]
     if isinstance(results, dict):
         for _, res in results.items():
-            csv_line.extend(res.stdout.strip().split(","))
+            csv_line.extend(res.stdout.strip()[:-1].split(","))
     else:
-        csv_line.extend(results.stdout.strip().split(","))
+        csv_line.extend(results.stdout.strip()[:-1].split(","))
     return csv_line
 
 
