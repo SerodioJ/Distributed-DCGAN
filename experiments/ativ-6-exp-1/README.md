@@ -18,7 +18,7 @@ isso siga o tutorial do estudo de caso 2 do Capítulo 3 [deste livro](http://wsc
 - cd experiments/ativ-6-exp-1
 - ./build.sh
 
-Desse modo as VMs possuiram todas as dependências, dados e imagens necessários para a execução do terinamento.
+Desse modo as VMs possuirão todas as dependências, dados e imagens necessários para a execução do terinamento.
 
 ### Criação de VMs e Configuração de Rede
 
