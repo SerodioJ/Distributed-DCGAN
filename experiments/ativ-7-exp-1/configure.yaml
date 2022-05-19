@@ -62,7 +62,7 @@
     poll: 30
     async: 600
   
-  - name: "Task 8: Copiar saída para máquina local"
+  - name: "Task 9: Copiar saída para máquina local"
     ansible.builtin.fetch:
       src: ~/Distributed-DCGAN/output.txt
       dest: ./{{ inventory_hostname }}-output.txt
