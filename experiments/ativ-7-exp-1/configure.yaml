@@ -66,6 +66,7 @@
     ansible.builtin.fetch:
       src: ~/Distributed-DCGAN/output.txt
       dest: ./{{ inventory_hostname }}-output.txt
+      flat: yes
 
   ###############################################
   #   Fim das suas tasks..                      #
