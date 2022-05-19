@@ -11,28 +11,61 @@
     debug:
       msg: "Teste SSH OK!"
 
-  ###############################################
-  #   Adicione suas tasks a partir daqui..      #
-  ###############################################
+  - name: "Task 2: Instalar dependências"
+    apt:
+      pkg:
+        - docker.io
+        - python3-pip
+      state: latest
+      update_cache: yes
+    become: yes
 
-  # Exemplo de task utilizada para adicionar o usuário ubuntu ao grupo Docker
-  - name: "Task 2: Adicionar usuario ubuntu ao grupo docker"
+  # Task utilizada para adicionar o usuário ubuntu ao grupo Docker
+  - name: "Task 3: Adicionar usuario ubuntu ao grupo docker"
     become: true
     user:
       name: ubuntu
       groups: docker
       append: yes
 
-  # Exemplo de task para reiniciar a conexão SSH
-  - name: "Task 3: Reinicar a conexão ssh para a alterações de grupos tenham efeito"
+  # Reinicia a conexão SSH
+  - name: "Task 4: Reinicar a conexão ssh para a alterações de grupos tenham efeito"
     ansible.builtin.meta:
       reset_connection
 
+  ###############################################
+  #   Adicione suas tasks a partir daqui..      #
+  ###############################################
+  - name: "Task 5: Clonar repositório"
+    ansible.builtin.git:
+      repo: "https://github.com/eborin/Distributed-DCGAN.git"
+      dest: ~/Distributed-DCGAN
+      version: ativ-7-exp-1
 
-  # Exemplo de task que imprime uma mensagem de sucesso
-  - name: "Task N: Final"
-    debug:
-      msg: "Playbook executado com sucesso!"
+  - name: "Task 6: Instalar dependências do pip" 
+    pip:
+      name: docker
+
+  - name: "Task 7: Buildar Imagem Docker"
+    community.docker.docker_image:
+      name: dist_dcgan:latest
+      build:
+        path: ~/Distributed-DCGAN
+      source: build
+    poll: 30
+    async: 600
+
+  - name: "Task 8: Executar treinamento"
+    ansible.builtin.shell: "docker run --rm -e HOMEDIR=$(pwd) -w $(pwd) -v=$(pwd):$(pwd) dist_dcgan:latest python -m torch.distributed.launch dist_dcgan.py --dataset mnist --dataroot data --download --image_size 64 --batch_size 128 --out_folder output --test_data --num_epochs 1 --max_workers 1 >> output.txt"
+    args:
+      chdir: ~/Distributed-DCGAN
+    poll: 30
+    async: 600
+  
+  - name: "Task 8: Copiar saída para máquina local"
+    ansible.builtin.fetch:
+      src: ~/Distributed-DCGAN/output.txt
+      dest: ./{{ inventory_hostname }}-output.txt
 
   ###############################################
   #   Fim das suas tasks..                      #
