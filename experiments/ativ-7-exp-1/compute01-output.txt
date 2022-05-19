@@ -1,0 +1,102 @@
+Namespace(batch_size=128, beta1=0.5, cuda=False, dataroot='data', dataset='mnist', download=True, image_size=64, learning_rate=0.0002, local_rank=0, max_workers=1, ndf=64, ngf=64, num_epochs=1, nz=100, out_folder='output', seed=0, test_data=True)
+Using seed: 0
+Using GPU: False
+Rank: 0. World Size: 1
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to data/MNIST/raw/train-images-idx3-ubyte.gz
+Extracting data/MNIST/raw/train-images-idx3-ubyte.gz to data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to data/MNIST/raw/train-labels-idx1-ubyte.gz
+Extracting data/MNIST/raw/train-labels-idx1-ubyte.gz to data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to data/MNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting data/MNIST/raw/t10k-images-idx3-ubyte.gz to data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting data/MNIST/raw/t10k-labels-idx1-ubyte.gz to data/MNIST/raw
+
+Dataset mnist loaded
+Rank: 0, Epoch: 0, Training ...
+[epoch: 0/1][iteration: 0/79][rank: 0] Loss_D: 1.4402, Loss_G: 2.5640, D(x): 0.5518, D(G(z)): 0.5589 / 0.0805, iteration time: 4.5832s
+[epoch: 0/1][iteration: 1/79][rank: 0] Loss_D: 1.0937, Loss_G: 3.5635, D(x): 0.9697, D(G(z)): 0.6461 / 0.0298, iteration time: 4.3894s
+[epoch: 0/1][iteration: 2/79][rank: 0] Loss_D: 0.4422, Loss_G: 4.6504, D(x): 0.9259, D(G(z)): 0.2990 / 0.0100, iteration time: 4.3552s
+[epoch: 0/1][iteration: 3/79][rank: 0] Loss_D: 0.3101, Loss_G: 4.6751, D(x): 0.8798, D(G(z)): 0.1553 / 0.0100, iteration time: 4.2860s
+[epoch: 0/1][iteration: 4/79][rank: 0] Loss_D: 0.2825, Loss_G: 5.3538, D(x): 0.9256, D(G(z)): 0.1772 / 0.0051, iteration time: 4.2634s
+[epoch: 0/1][iteration: 5/79][rank: 0] Loss_D: 0.2014, Loss_G: 5.8282, D(x): 0.9285, D(G(z)): 0.1119 / 0.0032, iteration time: 4.3086s
+[epoch: 0/1][iteration: 6/79][rank: 0] Loss_D: 0.1531, Loss_G: 6.1070, D(x): 0.9442, D(G(z)): 0.0874 / 0.0024, iteration time: 4.4060s
+[epoch: 0/1][iteration: 7/79][rank: 0] Loss_D: 0.1422, Loss_G: 6.2590, D(x): 0.9431, D(G(z)): 0.0733 / 0.0020, iteration time: 4.3724s
+[epoch: 0/1][iteration: 8/79][rank: 0] Loss_D: 0.0922, Loss_G: 6.8078, D(x): 0.9698, D(G(z)): 0.0580 / 0.0012, iteration time: 4.2641s
+[epoch: 0/1][iteration: 9/79][rank: 0] Loss_D: 0.0547, Loss_G: 6.7594, D(x): 0.9817, D(G(z)): 0.0350 / 0.0012, iteration time: 4.3072s
+[epoch: 0/1][iteration: 10/79][rank: 0] Loss_D: 0.0905, Loss_G: 6.3813, D(x): 0.9618, D(G(z)): 0.0299 / 0.0018, iteration time: 4.3133s
+[epoch: 0/1][iteration: 11/79][rank: 0] Loss_D: 0.0723, Loss_G: 7.6473, D(x): 0.9844, D(G(z)): 0.0542 / 0.0005, iteration time: 4.2442s
+[epoch: 0/1][iteration: 12/79][rank: 0] Loss_D: 0.0254, Loss_G: 7.2294, D(x): 0.9877, D(G(z)): 0.0121 / 0.0008, iteration time: 4.2573s
+[epoch: 0/1][iteration: 13/79][rank: 0] Loss_D: 0.0301, Loss_G: 6.6853, D(x): 0.9897, D(G(z)): 0.0194 / 0.0013, iteration time: 4.2100s
+[epoch: 0/1][iteration: 14/79][rank: 0] Loss_D: 0.0345, Loss_G: 7.1743, D(x): 0.9904, D(G(z)): 0.0244 / 0.0008, iteration time: 4.3900s
+[epoch: 0/1][iteration: 15/79][rank: 0] Loss_D: 0.0292, Loss_G: 6.9698, D(x): 0.9831, D(G(z)): 0.0111 / 0.0010, iteration time: 4.2343s
+[epoch: 0/1][iteration: 16/79][rank: 0] Loss_D: 0.0196, Loss_G: 6.7639, D(x): 0.9933, D(G(z)): 0.0128 / 0.0012, iteration time: 4.2865s
+[epoch: 0/1][iteration: 17/79][rank: 0] Loss_D: 0.0231, Loss_G: 7.2482, D(x): 0.9942, D(G(z)): 0.0170 / 0.0007, iteration time: 4.2596s
+[epoch: 0/1][iteration: 18/79][rank: 0] Loss_D: 0.0145, Loss_G: 7.2381, D(x): 0.9936, D(G(z)): 0.0080 / 0.0008, iteration time: 4.2849s
+[epoch: 0/1][iteration: 19/79][rank: 0] Loss_D: 0.0165, Loss_G: 6.9289, D(x): 0.9928, D(G(z)): 0.0092 / 0.0010, iteration time: 4.2929s
+[epoch: 0/1][iteration: 20/79][rank: 0] Loss_D: 0.0133, Loss_G: 7.0980, D(x): 0.9965, D(G(z)): 0.0097 / 0.0009, iteration time: 4.2339s
+[epoch: 0/1][iteration: 21/79][rank: 0] Loss_D: 0.0135, Loss_G: 7.0927, D(x): 0.9948, D(G(z)): 0.0082 / 0.0009, iteration time: 4.3408s
+[epoch: 0/1][iteration: 22/79][rank: 0] Loss_D: 0.0162, Loss_G: 7.0475, D(x): 0.9926, D(G(z)): 0.0084 / 0.0009, iteration time: 4.4910s
+[epoch: 0/1][iteration: 23/79][rank: 0] Loss_D: 0.0120, Loss_G: 7.1722, D(x): 0.9968, D(G(z)): 0.0088 / 0.0008, iteration time: 4.2897s
+[epoch: 0/1][iteration: 24/79][rank: 0] Loss_D: 0.0108, Loss_G: 7.1722, D(x): 0.9971, D(G(z)): 0.0079 / 0.0008, iteration time: 4.3373s
+[epoch: 0/1][iteration: 25/79][rank: 0] Loss_D: 0.0085, Loss_G: 7.1451, D(x): 0.9971, D(G(z)): 0.0055 / 0.0008, iteration time: 4.2779s
+[epoch: 0/1][iteration: 26/79][rank: 0] Loss_D: 0.0090, Loss_G: 6.9532, D(x): 0.9964, D(G(z)): 0.0053 / 0.0010, iteration time: 4.3816s
+[epoch: 0/1][iteration: 27/79][rank: 0] Loss_D: 0.0113, Loss_G: 7.0205, D(x): 0.9965, D(G(z)): 0.0077 / 0.0010, iteration time: 4.4141s
+[epoch: 0/1][iteration: 28/79][rank: 0] Loss_D: 0.0074, Loss_G: 7.1909, D(x): 0.9976, D(G(z)): 0.0049 / 0.0008, iteration time: 4.3123s
+[epoch: 0/1][iteration: 29/79][rank: 0] Loss_D: 0.0093, Loss_G: 7.1448, D(x): 0.9961, D(G(z)): 0.0053 / 0.0008, iteration time: 4.3566s
+[epoch: 0/1][iteration: 30/79][rank: 0] Loss_D: 0.0088, Loss_G: 7.4123, D(x): 0.9978, D(G(z)): 0.0065 / 0.0007, iteration time: 4.3528s
+[epoch: 0/1][iteration: 31/79][rank: 0] Loss_D: 0.0072, Loss_G: 7.4968, D(x): 0.9979, D(G(z)): 0.0051 / 0.0006, iteration time: 4.3340s
+[epoch: 0/1][iteration: 32/79][rank: 0] Loss_D: 0.0071, Loss_G: 7.4278, D(x): 0.9981, D(G(z)): 0.0052 / 0.0006, iteration time: 4.3552s
+[epoch: 0/1][iteration: 33/79][rank: 0] Loss_D: 0.0067, Loss_G: 7.3640, D(x): 0.9971, D(G(z)): 0.0037 / 0.0007, iteration time: 4.3378s
+[epoch: 0/1][iteration: 34/79][rank: 0] Loss_D: 0.0086, Loss_G: 7.3763, D(x): 0.9981, D(G(z)): 0.0066 / 0.0006, iteration time: 4.3467s
+[epoch: 0/1][iteration: 35/79][rank: 0] Loss_D: 0.0065, Loss_G: 7.5199, D(x): 0.9979, D(G(z)): 0.0044 / 0.0006, iteration time: 4.3337s
+[epoch: 0/1][iteration: 36/79][rank: 0] Loss_D: 0.0066, Loss_G: 7.4527, D(x): 0.9978, D(G(z)): 0.0044 / 0.0006, iteration time: 4.3398s
+[epoch: 0/1][iteration: 37/79][rank: 0] Loss_D: 0.0077, Loss_G: 7.4231, D(x): 0.9969, D(G(z)): 0.0046 / 0.0006, iteration time: 4.8634s
+[epoch: 0/1][iteration: 38/79][rank: 0] Loss_D: 0.0052, Loss_G: 7.4484, D(x): 0.9980, D(G(z)): 0.0032 / 0.0006, iteration time: 4.3115s
+[epoch: 0/1][iteration: 39/79][rank: 0] Loss_D: 0.0074, Loss_G: 7.2955, D(x): 0.9967, D(G(z)): 0.0040 / 0.0007, iteration time: 4.2765s
+[epoch: 0/1][iteration: 40/79][rank: 0] Loss_D: 0.0046, Loss_G: 7.3888, D(x): 0.9985, D(G(z)): 0.0031 / 0.0006, iteration time: 4.3135s
+[epoch: 0/1][iteration: 41/79][rank: 0] Loss_D: 0.0046, Loss_G: 7.3443, D(x): 0.9985, D(G(z)): 0.0030 / 0.0007, iteration time: 4.3338s
+[epoch: 0/1][iteration: 42/79][rank: 0] Loss_D: 0.0092, Loss_G: 7.2655, D(x): 0.9956, D(G(z)): 0.0039 / 0.0007, iteration time: 4.2437s
+[epoch: 0/1][iteration: 43/79][rank: 0] Loss_D: 0.0056, Loss_G: 7.5235, D(x): 0.9990, D(G(z)): 0.0046 / 0.0006, iteration time: 4.2270s
+[epoch: 0/1][iteration: 44/79][rank: 0] Loss_D: 0.0043, Loss_G: 7.6873, D(x): 0.9988, D(G(z)): 0.0031 / 0.0005, iteration time: 4.2028s
+[epoch: 0/1][iteration: 45/79][rank: 0] Loss_D: 0.0033, Loss_G: 7.6418, D(x): 0.9987, D(G(z)): 0.0020 / 0.0005, iteration time: 4.2466s
+[epoch: 0/1][iteration: 46/79][rank: 0] Loss_D: 0.0039, Loss_G: 7.3623, D(x): 0.9986, D(G(z)): 0.0025 / 0.0007, iteration time: 4.2415s
+[epoch: 0/1][iteration: 47/79][rank: 0] Loss_D: 0.0036, Loss_G: 7.4046, D(x): 0.9990, D(G(z)): 0.0026 / 0.0006, iteration time: 4.2609s
+[epoch: 0/1][iteration: 48/79][rank: 0] Loss_D: 0.0042, Loss_G: 7.4351, D(x): 0.9989, D(G(z)): 0.0031 / 0.0006, iteration time: 4.2641s
+[epoch: 0/1][iteration: 49/79][rank: 0] Loss_D: 0.0046, Loss_G: 7.5401, D(x): 0.9985, D(G(z)): 0.0030 / 0.0005, iteration time: 4.3017s
+[epoch: 0/1][iteration: 50/79][rank: 0] Loss_D: 0.0034, Loss_G: 7.5559, D(x): 0.9990, D(G(z)): 0.0024 / 0.0005, iteration time: 4.2744s
+[epoch: 0/1][iteration: 51/79][rank: 0] Loss_D: 0.0029, Loss_G: 7.5842, D(x): 0.9992, D(G(z)): 0.0021 / 0.0005, iteration time: 4.2492s
+[epoch: 0/1][iteration: 52/79][rank: 0] Loss_D: 0.0027, Loss_G: 7.6080, D(x): 0.9989, D(G(z)): 0.0016 / 0.0005, iteration time: 4.2894s
+[epoch: 0/1][iteration: 53/79][rank: 0] Loss_D: 0.0034, Loss_G: 7.4974, D(x): 0.9989, D(G(z)): 0.0023 / 0.0006, iteration time: 4.3287s
+[epoch: 0/1][iteration: 54/79][rank: 0] Loss_D: 0.0043, Loss_G: 7.5938, D(x): 0.9985, D(G(z)): 0.0028 / 0.0005, iteration time: 4.1769s
+[epoch: 0/1][iteration: 55/79][rank: 0] Loss_D: 0.0033, Loss_G: 7.7058, D(x): 0.9991, D(G(z)): 0.0024 / 0.0005, iteration time: 4.1824s
+[epoch: 0/1][iteration: 56/79][rank: 0] Loss_D: 0.0029, Loss_G: 7.6805, D(x): 0.9990, D(G(z)): 0.0018 / 0.0005, iteration time: 4.2109s
+[epoch: 0/1][iteration: 57/79][rank: 0] Loss_D: 0.0029, Loss_G: 7.6482, D(x): 0.9987, D(G(z)): 0.0015 / 0.0005, iteration time: 4.2558s
+[epoch: 0/1][iteration: 58/79][rank: 0] Loss_D: 0.0029, Loss_G: 7.5118, D(x): 0.9988, D(G(z)): 0.0017 / 0.0006, iteration time: 4.2583s
+[epoch: 0/1][iteration: 59/79][rank: 0] Loss_D: 0.0028, Loss_G: 7.5153, D(x): 0.9990, D(G(z)): 0.0018 / 0.0006, iteration time: 4.2513s
+[epoch: 0/1][iteration: 60/79][rank: 0] Loss_D: 0.0021, Loss_G: 7.6354, D(x): 0.9993, D(G(z)): 0.0014 / 0.0005, iteration time: 4.3112s
+[epoch: 0/1][iteration: 61/79][rank: 0] Loss_D: 0.0021, Loss_G: 7.6372, D(x): 0.9992, D(G(z)): 0.0013 / 0.0005, iteration time: 4.4038s
+[epoch: 0/1][iteration: 62/79][rank: 0] Loss_D: 0.0025, Loss_G: 7.4630, D(x): 0.9993, D(G(z)): 0.0018 / 0.0006, iteration time: 4.2360s
+[epoch: 0/1][iteration: 63/79][rank: 0] Loss_D: 0.0027, Loss_G: 7.5567, D(x): 0.9993, D(G(z)): 0.0020 / 0.0005, iteration time: 4.4762s
+[epoch: 0/1][iteration: 64/79][rank: 0] Loss_D: 0.0024, Loss_G: 7.6667, D(x): 0.9994, D(G(z)): 0.0018 / 0.0005, iteration time: 4.2756s
+[epoch: 0/1][iteration: 65/79][rank: 0] Loss_D: 0.0027, Loss_G: 7.6576, D(x): 0.9990, D(G(z)): 0.0017 / 0.0005, iteration time: 4.2592s
+[epoch: 0/1][iteration: 66/79][rank: 0] Loss_D: 0.0024, Loss_G: 7.6338, D(x): 0.9993, D(G(z)): 0.0017 / 0.0005, iteration time: 4.2661s
+[epoch: 0/1][iteration: 67/79][rank: 0] Loss_D: 0.0024, Loss_G: 7.6251, D(x): 0.9992, D(G(z)): 0.0016 / 0.0005, iteration time: 4.2762s
+[epoch: 0/1][iteration: 68/79][rank: 0] Loss_D: 0.0023, Loss_G: 7.6048, D(x): 0.9992, D(G(z)): 0.0015 / 0.0005, iteration time: 4.3096s
+[epoch: 0/1][iteration: 69/79][rank: 0] Loss_D: 0.0028, Loss_G: 7.5294, D(x): 0.9989, D(G(z)): 0.0017 / 0.0006, iteration time: 4.3710s
+[epoch: 0/1][iteration: 70/79][rank: 0] Loss_D: 0.0033, Loss_G: 7.5317, D(x): 0.9994, D(G(z)): 0.0027 / 0.0006, iteration time: 4.2340s
+[epoch: 0/1][iteration: 71/79][rank: 0] Loss_D: 0.0030, Loss_G: 7.6957, D(x): 0.9991, D(G(z)): 0.0020 / 0.0005, iteration time: 4.2909s
+[epoch: 0/1][iteration: 72/79][rank: 0] Loss_D: 0.0026, Loss_G: 7.7444, D(x): 0.9989, D(G(z)): 0.0015 / 0.0004, iteration time: 4.2489s
+[epoch: 0/1][iteration: 73/79][rank: 0] Loss_D: 0.0027, Loss_G: 7.5726, D(x): 0.9990, D(G(z)): 0.0017 / 0.0005, iteration time: 4.2491s
+[epoch: 0/1][iteration: 74/79][rank: 0] Loss_D: 0.0024, Loss_G: 7.5658, D(x): 0.9996, D(G(z)): 0.0019 / 0.0005, iteration time: 4.3805s
+[epoch: 0/1][iteration: 75/79][rank: 0] Loss_D: 0.0024, Loss_G: 7.6239, D(x): 0.9994, D(G(z)): 0.0018 / 0.0005, iteration time: 4.3371s
+[epoch: 0/1][iteration: 76/79][rank: 0] Loss_D: 0.0024, Loss_G: 7.6244, D(x): 0.9994, D(G(z)): 0.0018 / 0.0005, iteration time: 4.5153s
+[epoch: 0/1][iteration: 77/79][rank: 0] Loss_D: 0.0023, Loss_G: 7.6420, D(x): 0.9997, D(G(z)): 0.0019 / 0.0005, iteration time: 4.3453s
+[epoch: 0/1][iteration: 78/79][rank: 0] Loss_D: 0.0022, Loss_G: 7.7160, D(x): 0.9994, D(G(z)): 0.0016 / 0.0005, iteration time: 0.5598s
+[rank: 0] Epoch 0 took: 338.2450 seconds
