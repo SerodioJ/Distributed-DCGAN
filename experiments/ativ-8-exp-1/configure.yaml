@@ -1,3 +1,4 @@
+# João Alberto Moreira Seródio - RA: 218548
 # Playbook para implantação e execução da DCGAN
 # Você deve adicionar mais tasks a partir do local indicado, abaixo.
 # Lembre-se que a indentação é muito importante.
@@ -42,8 +43,61 @@
   ###############################################
   #   Adicione suas tasks a partir daqui..      #
   ###############################################
+  - name: "Task 5: Instalar dependências"
+    apt:
+      pkg:
+        - docker.io
+        - python3-docker
+        - nfs-common
+      state: latest
+      update_cache: yes
+    become: yes
 
+  - name: "Task 6: Criar diretório onde NFS será montado"
+    ansible.builtin.file:
+      path: "{{ efs_mount_point }}"
+      state: directory
 
+  - name: "Task 7: Montar sistema de arquivos compartilhado"
+    ansible.posix.mount:
+      src: "{{ efs_host }}:/"
+      path: "{{ efs_mount_point }}"
+      opts: nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport
+      state: mounted
+      fstype: nfs4
+    become: yes
+
+  - name: "Task 8: Clonar repositório"
+    ansible.builtin.git:
+      repo: "https://github.com/eborin/Distributed-DCGAN.git"
+      dest: "{{ user_dir }}/Distributed-DCGAN"
+      version: ativ-7-exp-1
+      force: yes
+    run_once: true
+
+  - name: "Task 9: Buildar Imagem Docker"
+    community.docker.docker_image:
+      name: dist_dcgan:latest
+      build:
+        path: "{{ user_dir }}/Distributed-DCGAN"
+      source: build
+    poll: 30
+    async: 1200
+
+  - name: "Task 10: Criar diretório de resultados"
+    ansible.builtin.file:
+      path: "{{ results_dir }}"
+      state: directory
+      mode: '0777'
+      recurse: true
+    run_once: true
+
+  - name: "Task 11: Executar treinamento"
+    ansible.builtin.shell: "docker run --network=host --rm -e HOMEDIR=$(pwd) -w $(pwd) -v={{ cifar_data_dir }}:{{ cifar_data_dir }} -v=$(pwd):$(pwd) dist_dcgan:latest python -m torch.distributed.launch --nproc_per_node=1 --nnodes={{ ansible_play_hosts | length }} --node_rank={{ node_rank }} --master_addr=\"{{ hostvars.node0.ansible_host }}\" --master_port=1234 dist_dcgan.py --dataset cifar10 --dataroot {{ cifar_data_dir }} --image_size 64 --batch_size 128 --out_folder {{ results_dir }} --test_data --num_epochs 2 --max_workers 1 > {{results_dir }}/output-{{ node_rank }}.txt"
+    args:
+      chdir: "{{ user_dir }}/Distributed-DCGAN"
+    poll: 30
+    async: 1200
 
   ###############################################
   #   Fim das suas tasks..                      #
