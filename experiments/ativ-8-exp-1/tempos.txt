@@ -1,0 +1,3 @@
+cluster-1: 683.8407 segundos
+cluster-2: 401.9882 segundos
+cluster-4: 217.4465 segundos
